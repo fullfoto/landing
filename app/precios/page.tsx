@@ -390,9 +390,6 @@ export default function PricingPage() {
                 Términos
               </Link>
               <Link href="#" className="hover:text-white transition-colors">
-                Privacidad
-              </Link>
-              <Link href="#" className="hover:text-white transition-colors">
                 Contacto
               </Link>
             </div>
