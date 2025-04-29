@@ -1,0 +1,5 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M30 5L5 35H55L30 5Z" fill="white"/>
+  <path d="M30 15L20 30H40L30 15Z" fill="#3C84F5"/>
+  <text x="60" y="25" font-family="Arial" font-weight="bold" font-size="18" fill="white">FullFoto</text>
+</svg>
