@@ -12,7 +12,7 @@ export default function PricingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center">
-              <Image src="/logo-nuevo-blanco.png" alt="FullFoto" width={120} height={40} className="h-8 w-auto" />
+              <Image src="/logo-nuevo-blanco.png" alt="FullFoto" width={120} height={40} className="h-12 w-auto" />
             </Link>
             <div className="hidden md:flex items-center space-x-8">
               <Link href="/#beneficios" className="text-white/90 hover:text-white transition-colors">
@@ -382,7 +382,7 @@ export default function PricingPage() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
               <Link href="/">
-                <Image src="/logo-nuevo-blanco.png" alt="FullFoto" width={120} height={40} className="h-8 w-auto" />
+                <Image src="/logo-nuevo-blanco.png" alt="FullFoto" width={120} height={40} className="h-12 w-auto" />
               </Link>
             </div>
             <div className="flex gap-8">

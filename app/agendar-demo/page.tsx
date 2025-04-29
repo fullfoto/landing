@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Camera, Calendar, Clock, Building, User, Mail, Phone, ChevronLeft, CheckCircle2 } from "lucide-react"
+import { Calendar, Clock, Building, User, Mail, Phone, ChevronLeft, CheckCircle2 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -17,8 +17,7 @@ export default function AgendarDemoPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center">
-              <Camera className="h-6 w-6 text-white" />
-              <span className="ml-2 text-xl font-bold text-white">FullFoto</span>
+              <Image src="/logo-nuevo-blanco.png" alt="FullFoto" width={120} height={40} className="h-12 w-auto" />
             </Link>
             <div className="hidden md:flex items-center space-x-8">
               <Link href="/#beneficios" className="text-white/90 hover:text-white transition-colors">
@@ -310,9 +309,10 @@ export default function AgendarDemoPage() {
       <footer className="py-12 bg-gray-900 text-gray-400">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0 flex items-center">
-              <Camera className="h-5 w-5 text-white" />
-              <span className="ml-2 text-lg font-bold text-white">FullFoto</span>
+            <div className="mb-6 md:mb-0">
+              <Link href="/">
+                <Image src="/logo-nuevo-blanco.png" alt="FullFoto" width={120} height={40} className="h-12 w-auto" />
+              </Link>
             </div>
             <div className="flex gap-8">
               <Link href="#" className="hover:text-white transition-colors">
