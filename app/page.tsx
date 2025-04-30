@@ -12,16 +12,13 @@ import {
   Server,
   Clock,
   CheckCircle2,
-  Send,
   Mail,
   Phone,
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
 import Navbar from "@/app/components/navbar"
+import ContactForm from "@/app/components/contact-form"
 
 export default function Home() {
   return (
@@ -423,38 +420,7 @@ export default function Home() {
 
                 <div className="bg-white p-8 rounded-xl shadow-lg">
                   <h3 className="text-2xl font-bold mb-6 text-gray-900">Contactanos</h3>
-                  <form className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="nombre" className="text-gray-700">
-                          Nombre
-                        </Label>
-                        <Input id="nombre" placeholder="Tu nombre" className="w-full" />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="email" className="text-gray-700">
-                          Email
-                        </Label>
-                        <Input id="email" type="email" placeholder="tu@email.com" className="w-full" />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="empresa" className="text-gray-700">
-                        Empresa
-                      </Label>
-                      <Input id="empresa" placeholder="Nombre de tu empresa" className="w-full" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="mensaje" className="text-gray-700">
-                        Mensaje
-                      </Label>
-                      <Textarea id="mensaje" placeholder="¿En qué podemos ayudarte?" className="w-full min-h-[120px]" />
-                    </div>
-                    <Button type="submit" className="w-full bg-blue-500 hover:bg-blue-600 text-white">
-                      Enviar mensaje
-                      <Send className="ml-2 h-4 w-4" />
-                    </Button>
-                  </form>
+                  <ContactForm />
                 </div>
               </div>
             </div>
