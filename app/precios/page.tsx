@@ -3,37 +3,13 @@ import Image from "next/image"
 import { Check, CheckCircle2, ChevronRight, Star, Mail, Phone } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import Navbar from "@/app/components/navbar"
 
 export default function PricingPage() {
   return (
     <main className="flex min-h-screen flex-col">
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 py-4">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center">
-              <Image src="/logo-nuevo-blanco.png" alt="FullFoto" width={120} height={40} className="h-12 w-auto" />
-            </Link>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/#beneficios" className="text-white/90 hover:text-white transition-colors">
-                Beneficios
-              </Link>
-              <Link href="/#caracteristicas" className="text-white/90 hover:text-white transition-colors">
-                Características
-              </Link>
-              <Link href="/precios" className="text-white/90 hover:text-white transition-colors">
-                Precios
-              </Link>
-              <Link href="/#contacto" className="text-white/90 hover:text-white transition-colors">
-                Contacto
-              </Link>
-            </div>
-            <Button className="bg-blue-500 hover:bg-blue-600 text-white rounded-md" asChild>
-              <Link href="/agendar-demo">Demo gratuita</Link>
-            </Button>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Header */}
       <section className="relative pt-32 pb-24">
