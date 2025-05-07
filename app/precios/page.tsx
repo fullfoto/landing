@@ -14,7 +14,7 @@ export default function PricingPage() {
       {/* Header */}
       <section className="relative pt-32 pb-24">
         <div className="absolute inset-0 z-0">
-          <Image src="/pricing-bg.png" alt="Paisaje montañoso con lago" fill className="object-cover" priority />
+          <Image src="/pricing-bg.jpg" alt="Paisaje montañoso con lago" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-blue-900/60"></div>
         </div>
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
