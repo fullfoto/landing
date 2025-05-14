@@ -167,17 +167,16 @@ export default function PricingPage() {
             {/* Plan 3: Empresa con local */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 transition-transform hover:scale-[1.02]">
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Empresa con Local</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Empresa con Local(es)</h3>
                 <div className="flex items-end gap-2 mb-6">
-                  <span className="text-4xl font-bold text-gray-900">3%</span>
-                  <span className="text-gray-600 mb-1">sobre ventas</span>
+                  <span className="text-2xl font-bold text-gray-900">Plan adaptado</span>
                 </div>
                 <p className="text-gray-600 mb-6">
                   Solución completa para empresas con locales físicos y múltiples puntos de venta.
                 </p>
                 <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-lg py-6" asChild>
-                  <Link href="/agendar-demo">
-                    Comenzar ahora
+                  <Link href="/#contacto">
+                    Contactar a ventas
                     <ChevronRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
