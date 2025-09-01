@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Check, CheckCircle2, ChevronRight, Star, Mail, Phone } from "lucide-react"
+import { Check, CheckCircle2, ChevronRight, Mail, Phone, X } from "lucide-react"
+import PricingHeroBackground from "@/app/components/pricing-hero-background"
 
 import { Button } from "@/components/ui/button"
 import Navbar from "@/app/components/navbar"
@@ -13,22 +14,14 @@ export default function PricingPage() {
 
       {/* Header */}
       <section className="relative pt-32 pb-24">
-        <div className="absolute inset-0 z-0">
-          <Image src="/pricing-bg.jpg" alt="Paisaje montañoso con lago" fill className="object-cover" priority />
-          <div className="absolute inset-0 bg-blue-900/60"></div>
-        </div>
+        <PricingHeroBackground />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Planes adaptados a tus necesidades</h1>
             <p className="text-xl text-blue-100 mb-8">
-              Elige el plan que mejor se adapte a tu negocio fotográfico y comienza a vender más
+              Desde fotógrafos independientes hasta empresas con múltiples locales. Encuentra el plan perfecto para tu
+              negocio.
             </p>
-            <div className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-full p-1 mb-8">
-              <span className="px-4 py-2 text-sm font-medium text-white">Pago por uso</span>
-              <span className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium">
-                Sin cuotas mensuales
-              </span>
-            </div>
           </div>
         </div>
       </section>
@@ -37,16 +30,21 @@ export default function PricingPage() {
       <section className="py-16 bg-gray-50 -mt-10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Plan 1: Fotógrafo independiente */}
+            {/* Plan FREE */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 transition-transform hover:scale-[1.02]">
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Fotógrafo Independiente</h3>
-                <div className="flex items-end gap-2 mb-6">
-                  <span className="text-4xl font-bold text-gray-900">5%</span>
-                  <span className="text-gray-600 mb-1">sobre ventas</span>
+                <h3 className="font-bold text-gray-900 mb-4 text-center text-3xl mt-5">FREE</h3>
+                <div className="flex items-end gap-2 mb-2 justify-center">
+                  <span className="text-4xl font-bold text-gray-900">$0</span>
+                  <span className="text-gray-600 mb-1">USD/mes</span>
+                </div>
+                <div className="text-center bg-gray-100 rounded-lg p-2 mb-6 mt-[18px]">
+                  <span className="text-sm text-gray-700">
+                    Comisión por venta: <strong>10%</strong>
+                  </span>
                 </div>
                 <p className="text-gray-600 mb-6">
-                  Ideal para fotógrafos que trabajan por su cuenta y quieren una solución completa.
+                  Pensado para fotógrafos independientes que están comenzando y quieren crecer su negocio.
                 </p>
                 <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-lg py-6" asChild>
                   <Link href="/agendar-demo">
@@ -59,23 +57,19 @@ export default function PricingPage() {
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">Almacenamiento ilimitado</span>
+                    <span className="text-gray-700">Almacenamiento ilimitado (1 año)</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">Álbums ilimitados</span>
+                    <span className="text-gray-700">Hasta 15 álbums</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">Página personalizada</span>
+                    <span className="text-gray-700">Página web personalizada</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-700">Logo y branding</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">Dominio personalizado</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
@@ -87,25 +81,52 @@ export default function PricingPage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">Creación de cupones de descuento</span>
+                    <span className="text-gray-700">Reconocimiento facial y de número</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">Packs por cantidad</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">Cupones de descuento</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-gray-400">
+                    <X className="h-5 w-5 text-gray-400 mt-0.5 flex-shrink-0" />
+                    <span>Marca de agua FullFoto</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-gray-400">
+                    <X className="h-5 w-5 text-gray-400 mt-0.5 flex-shrink-0" />
+                    <span>Branding FullFoto</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-gray-400">
+                    <X className="h-5 w-5 text-gray-400 mt-0.5 flex-shrink-0" />
+                    <span>Costo mínimo de implementación</span>
                   </li>
                 </ul>
               </div>
             </div>
 
-            {/* Plan 2: Empresa 100% digital */}
+            {/* Plan PRO */}
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-blue-200 relative transform hover:scale-[1.03] z-10">
               <div className="absolute top-0 right-0 bg-blue-500 text-white px-4 py-1 rounded-bl-lg font-medium text-sm">
-                Más popular
+                Plan más conveniente del mercado
               </div>
               <div className="p-8 bg-gradient-to-b from-blue-50 to-white">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Empresa 100% Digital</h3>
-                <div className="flex items-end gap-2 mb-6">
-                  <span className="text-4xl font-bold text-gray-900">3%</span>
-                  <span className="text-gray-600 mb-1">sobre ventas</span>
+                <h3 className="font-bold text-gray-900 mb-4 text-center text-3xl mt-5">PRO</h3>
+                <div className="flex items-end gap-2 mb-2 justify-center">
+                  <span className="text-4xl font-bold text-gray-900">$17</span>
+                  <span className="text-gray-600 mb-1">USD/mes</span>
+                </div>
+                <div className="text-center bg-green-100 rounded-lg p-2 mb-6 mt-[13px]">
+                  <span className="text-sm text-green-800">
+                    Comisión por venta: <strong>7%</strong>
+                  </span>
+                  <div className="text-xs text-green-600 mt-1">La más baja del mercado</div>
                 </div>
                 <p className="text-gray-600 mb-6">
-                  Perfecto para empresas con múltiples fotógrafos que operan principalmente online.
+                  Perfecto para fotógrafos con experiencia que quieren desbloquear su potencial y utilizar al 100% la
+                  plataforma.
                 </p>
                 <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-lg py-6" asChild>
                   <Link href="/agendar-demo">
@@ -126,15 +147,11 @@ export default function PricingPage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">Página personalizada</span>
+                    <span className="text-gray-700">Página web personalizada</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-700">Logo y branding</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">Dominio personalizado</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
@@ -146,37 +163,63 @@ export default function PricingPage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">Creación de cupones de descuento</span>
+                    <span className="text-gray-700">Reconocimiento facial y de número</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">Packs por cantidad</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">Cupones de descuento</span>
                   </li>
                   <li className="flex items-start gap-3 bg-blue-50 p-3 rounded-lg">
                     <CheckCircle2 className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-900 font-medium">Roles para fotógrafos</span>
+                    <span className="text-gray-900 font-medium">Marca de agua personalizada</span>
                   </li>
                   <li className="flex items-start gap-3 bg-blue-50 p-3 rounded-lg">
                     <CheckCircle2 className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-900 font-medium">Dashboards y métricas grupales y por fotógrafo</span>
+                    <span className="text-gray-900 font-medium">Equipos de hasta 10 fotógrafos</span>
                   </li>
                   <li className="flex items-start gap-3 bg-blue-50 p-3 rounded-lg">
                     <CheckCircle2 className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-900 font-medium">Permisos personalizados</span>
+                    <span className="text-gray-900 font-medium">Dashboards y métricas grupales</span>
+                  </li>
+                  <li className="flex items-start gap-3 bg-blue-50 p-3 rounded-lg">
+                    <CheckCircle2 className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-900 font-medium">Selección de fotos de regalo</span>
+                  </li>
+                  <li className="flex items-start gap-3 bg-blue-50 p-3 rounded-lg">
+                    <CheckCircle2 className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-900 font-medium">Implementación bonificada</span>
+                  </li>
+                  <li className="flex items-start gap-3 bg-blue-50 p-3 rounded-lg">
+                    <CheckCircle2 className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-900 font-medium">Soporte prioritario</span>
                   </li>
                 </ul>
               </div>
             </div>
 
-            {/* Plan 3: Empresa con local */}
+            {/* Plan ENTERPRISE */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 transition-transform hover:scale-[1.02]">
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Empresa con Local(es)</h3>
-                <div className="flex items-end gap-2 mb-6">
-                  <span className="text-2xl font-bold text-gray-900">Plan adaptado</span>
+                <h3 className="font-bold text-gray-900 text-center text-3xl mt-5 mb-4">ENTERPRISE</h3>
+                <div className="flex items-end gap-2 mb-6 justify-center">
+                  <span className="text-2xl font-bold text-gray-900">Plan Adaptado</span>
+                </div>
+                <div className="text-center bg-gray-100 rounded-lg p-2 mb-6 mt-[18px]">
+                  <span className="text-sm text-gray-700">
+                    Comisión por venta: <strong>Personalizada</strong>
+                  </span>
                 </div>
                 <p className="text-gray-600 mb-6">
-                  Solución completa para empresas con locales físicos y múltiples puntos de venta.
+                  Solución completa para empresas con (o sin) locales físicos y múltiples puntos de venta.
                 </p>
+
                 <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-lg py-6" asChild>
                   <Link href="/#contacto">
-                    Contactar a ventas
+                    Contactar con ventas
                     <ChevronRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
@@ -201,10 +244,6 @@ export default function PricingPage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">Dominio personalizado</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-700">Pagos online integrados</span>
                   </li>
                   <li className="flex items-start gap-3">
@@ -213,11 +252,23 @@ export default function PricingPage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">Creación de cupones de descuento</span>
+                    <span className="text-gray-700">Reconocimiento facial y de número</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">Roles para fotógrafos</span>
+                    <span className="text-gray-700">Packs por cantidad</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">Cupones de descuento</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">Marca de agua propia</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">Equipos ilimitados de fotógrafos</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
@@ -225,27 +276,31 @@ export default function PricingPage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">Permisos personalizados</span>
+                    <span className="text-gray-700">Foto de regalo (Marketing)</span>
                   </li>
                   <li className="flex items-start gap-3 bg-blue-50 p-3 rounded-lg">
                     <CheckCircle2 className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-900 font-medium">Servidor en local para carga de fotos instantánea</span>
+                    <span className="text-gray-900 font-medium">
+                      Servidor en local para carga de fotos instantánea (LAN)
+                    </span>
                   </li>
                   <li className="flex items-start gap-3 bg-blue-50 p-3 rounded-lg">
                     <CheckCircle2 className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-900 font-medium">Conexión LAN y sincronización paralela</span>
+                    <span className="text-gray-900 font-medium">Pagos tradicionales permitidos</span>
                   </li>
                   <li className="flex items-start gap-3 bg-blue-50 p-3 rounded-lg">
                     <CheckCircle2 className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-900 font-medium">Conexión con múltiples locales</span>
                   </li>
+                  <li className="flex items-start gap-3 bg-blue-50 p-3 rounded-lg">
+                    <CheckCircle2 className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-900 font-medium">Facturación automática (Solo Argentina)</span>
+                  </li>
+                  <li className="flex items-start gap-3 bg-blue-50 p-3 rounded-lg">
+                    <CheckCircle2 className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-900 font-medium">Implementación bonificada</span>
+                  </li>
                 </ul>
-                <div className="mt-6 bg-blue-50 p-4 rounded-lg">
-                  <p className="text-blue-800 font-medium flex items-center gap-2">
-                    <Star className="h-5 w-5 text-blue-500" />
-                    Implementación bonificada
-                  </p>
-                </div>
               </div>
             </div>
           </div>
@@ -264,10 +319,18 @@ export default function PricingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">¿Hay algún costo inicial?</h3>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">¿Cómo funciona el plan FREE?</h3>
               <p className="text-gray-700">
-                No, FullFoto no tiene costos iniciales ni cuotas mensuales. Solo pagas un porcentaje sobre las ventas
-                realizadas a través de la plataforma.
+                El plan FREE no tiene costo mensual, solo comisión por venta. Si un mes no hay ventas no se abona
+                absolutamente nada.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-6">
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">¿Cómo funciona el plan PRO?</h3>
+              <p className="text-gray-700">
+                El plan PRO tiene una pequeña suscripción mensual que se absorbe con lo que se ahorra en la reducción de
+                las comisiones. Rápidamente estarás pagando significativamente menos que en el plan Free.
               </p>
             </div>
 
@@ -280,34 +343,45 @@ export default function PricingPage() {
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">¿Qué métodos de pago aceptan?</h3>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">¿Qué incluye la implementación bonificada?</h3>
               <p className="text-gray-700">
-                Integramos múltiples pasarelas de pago como MercadoPago, PayPal, Pix y tarjetas de crédito/débito para
-                facilitar las ventas.
+                Configuración completa de tu cuenta, alta de usuarios, personalización de branding y soporte.
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">¿Cómo funciona la implementación?</h3>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">¿Cómo se calculan las comisiones?</h3>
               <p className="text-gray-700">
-                Nuestro equipo te guiará en todo el proceso de implementación, desde la configuración inicial hasta la
-                capacitación de tu equipo.
+                Las comisiones se aplican únicamente sobre las ventas exitosas realizadas a través de la plataforma. No
+                hay comisiones por fotos no vendidas.
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">¿Ofrecen soporte técnico?</h3>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">¿El plan FREE tiene limitaciones de tiempo?</h3>
               <p className="text-gray-700">
-                Sí, todos los planes incluyen soporte técnico personalizado para resolver cualquier duda o incidencia
-                que pueda surgir.
+                El plan FREE no tiene limitaciones de tiempo. Es perfecto para comenzar y probar la plataforma, pero si
+                lo deseas, puedes continuar libre de suscripciones de por vida.
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">¿Qué significa "almacenamiento ilimitado"?</h3>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+                ¿Qué significa "la comisión más baja del mercado"?
+              </h3>
               <p className="text-gray-700">
-                Puedes subir todas las fotos que necesites sin preocuparte por límites de espacio o costos adicionales
-                por almacenamiento.
+                Con el plan PRO pagas solo 7% de comisión por venta, significativamente menor que otras plataformas del
+                mercado que cobran entre 15-30%.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-6">
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+                ¿Para qué tipo de empresas es ideal el plan ENTERPRISE?
+              </h3>
+              <p className="text-gray-700">
+                Este plan es ideal para centros de ski, parques de diversiones, parques acuáticos, estadios y todo tipo
+                de atracciones donde se realicen venta de fotos.
               </p>
             </div>
           </div>
@@ -324,7 +398,7 @@ export default function PricingPage() {
                 ¿Listo para potenciar tus ventas de fotos?
               </h2>
               <p className="text-xl text-blue-100 mb-8">
-                Comienza hoy mismo y descubre cómo FullFoto puede transformar tu negocio fotográfico
+                Comienza con nuestro plan FREE o agenda una demo para conocer todas las funcionalidades
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button

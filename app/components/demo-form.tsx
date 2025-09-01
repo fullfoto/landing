@@ -110,25 +110,25 @@ export default function DemoForm() {
 
         <div className="space-y-3">
           <Label className="text-gray-700">
-            Tipo de negocio <span className="text-red-500">*</span>
+            Plan de interés <span className="text-red-500">*</span>
           </Label>
-          <RadioGroup name="tipoNegocio" defaultValue="fotografo" className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <RadioGroup name="planInteres" defaultValue="free" className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="flex items-center space-x-2 border border-gray-200 rounded-lg p-3 hover:bg-gray-50 cursor-pointer">
-              <RadioGroupItem value="fotografo" id="fotografo" />
-              <Label htmlFor="fotografo" className="cursor-pointer">
-                Fotógrafo independiente
+              <RadioGroupItem value="free" id="free" />
+              <Label htmlFor="free" className="cursor-pointer">
+                Free
               </Label>
             </div>
             <div className="flex items-center space-x-2 border border-gray-200 rounded-lg p-3 hover:bg-gray-50 cursor-pointer">
-              <RadioGroupItem value="empresa-digital" id="empresa-digital" />
-              <Label htmlFor="empresa-digital" className="cursor-pointer">
-                Empresa 100% digital
+              <RadioGroupItem value="pro" id="pro" />
+              <Label htmlFor="pro" className="cursor-pointer">
+                Pro
               </Label>
             </div>
             <div className="flex items-center space-x-2 border border-gray-200 rounded-lg p-3 hover:bg-gray-50 cursor-pointer">
-              <RadioGroupItem value="empresa-local" id="empresa-local" />
-              <Label htmlFor="empresa-local" className="cursor-pointer">
-                Empresa con local
+              <RadioGroupItem value="enterprise" id="enterprise" />
+              <Label htmlFor="enterprise" className="cursor-pointer">
+                Enterprise
               </Label>
             </div>
           </RadioGroup>

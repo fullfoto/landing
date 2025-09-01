@@ -71,7 +71,7 @@ export default function Home() {
 
           <div className="mt-auto">
             <p className="text-white/80 mb-4">Plataforma utilizada por:</p>
-            <div className="flex flex-wrap justify-center gap-4 mb-4">
+            <div className="flex flex-wrap justify-center gap-4">
               <div className="rounded-full px-4 py-2 text-white/70 backdrop-blur-sm bg-white/10">Parques de nieve</div>
               <div className="rounded-full px-4 py-2 text-white/70 backdrop-blur-sm bg-white/10">
                 Eventos deportivos

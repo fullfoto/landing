@@ -17,7 +17,7 @@ const demoFormSchema = z.object({
   email: z.string().email({ message: "Email inválido" }),
   telefono: z.string().min(5, { message: "El teléfono es requerido" }),
   empresa: z.string().optional(),
-  tipoNegocio: z.enum(["fotografo", "empresa-digital", "empresa-local"]),
+  planInteres: z.enum(["free", "pro", "enterprise"]),
   fecha: z.string().min(1, { message: "La fecha es requerida" }),
   hora: z.string().min(1, { message: "La hora es requerida" }),
   mensaje: z.string().optional(),
@@ -86,7 +86,7 @@ export async function sendDemoEmail(formData: FormData) {
       email: formData.get("email") as string,
       telefono: formData.get("telefono") as string,
       empresa: formData.get("empresa") as string,
-      tipoNegocio: formData.get("tipoNegocio") as "fotografo" | "empresa-digital" | "empresa-local",
+      planInteres: formData.get("planInteres") as "free" | "pro" | "enterprise",
       fecha: formData.get("fecha") as string,
       hora: formData.get("hora") as string,
       mensaje: formData.get("mensaje") as string,
@@ -95,12 +95,12 @@ export async function sendDemoEmail(formData: FormData) {
     // Validar los datos
     const validatedData = demoFormSchema.parse(data)
 
-    // Mapear el tipo de negocio a un texto más descriptivo
-    const tipoNegocioTexto = {
-      fotografo: "Fotógrafo independiente",
-      "empresa-digital": "Empresa 100% digital",
-      "empresa-local": "Empresa con local",
-    }[validatedData.tipoNegocio]
+    // Mapear el plan de interés a un texto más descriptivo
+    const planInteresTexto = {
+      free: "Plan Free",
+      pro: "Plan Pro",
+      enterprise: "Plan Enterprise",
+    }[validatedData.planInteres]
 
     // Configurar el email
     const mailOptions = {
@@ -113,7 +113,7 @@ export async function sendDemoEmail(formData: FormData) {
         <p><strong>Email:</strong> ${validatedData.email}</p>
         <p><strong>Teléfono:</strong> ${validatedData.telefono}</p>
         <p><strong>Empresa:</strong> ${validatedData.empresa || "No especificada"}</p>
-        <p><strong>Tipo de negocio:</strong> ${tipoNegocioTexto}</p>
+        <p><strong>Plan de interés:</strong> ${planInteresTexto}</p>
         <p><strong>Fecha preferida:</strong> ${validatedData.fecha}</p>
         <p><strong>Hora preferida:</strong> ${validatedData.hora}</p>
         <p><strong>Mensaje adicional:</strong></p>
