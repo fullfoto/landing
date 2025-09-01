@@ -336,7 +336,13 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
             <div className="flex justify-center items-center p-3 h-24 lg:h-20">
-              <Image src="/clients/aquafoto.png" alt="Aquafoto" width={160} height={80} className="object-contain" />
+              <Image
+                src="/clients/lago-hermoso.png"
+                alt="Lago Hermoso"
+                width={160}
+                height={80}
+                className="object-contain"
+              />
             </div>
             <div className="flex justify-center items-center p-3 h-24 lg:h-20">
               <Image src="/clients/b-side.png" alt="B-Side" width={160} height={80} className="object-contain" />
@@ -351,13 +357,7 @@ export default function Home() {
               />
             </div>
             <div className="flex justify-center items-center p-3 h-24 lg:h-20">
-              <Image
-                src="/clients/fotosoldeu.png"
-                alt="Foto Soldeu"
-                width={140}
-                height={80}
-                className="object-contain"
-              />
+              <Image src="/clients/las-lenas.png" alt="Las Leñas" width={160} height={80} className="object-contain" />
             </div>
             <div className="flex justify-center items-center p-3 h-24 lg:h-20">
               <Image
@@ -370,8 +370,8 @@ export default function Home() {
             </div>
             <div className="flex justify-center items-center p-3 h-24 lg:h-20">
               <Image
-                src="/clients/interleague.png"
-                alt="Interleague"
+                src="/clients/fotosoldeu.png"
+                alt="Foto Soldeu"
                 width={140}
                 height={80}
                 className="object-contain"
@@ -407,7 +407,7 @@ export default function Home() {
                       <div className="bg-white/10 p-3 rounded-full">
                         <CheckCircle2 className="h-6 w-6 text-blue-300" />
                       </div>
-                      <p className="text-white">Implementación en menos de 24 horas</p>
+                      <p className="text-white">Implementación en menos de 48 horas</p>
                     </div>
                     <div className="flex items-center gap-4">
                       <div className="bg-white/10 p-3 rounded-full">

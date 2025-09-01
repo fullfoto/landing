@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Check, CheckCircle2, ChevronRight, Mail, Phone, X } from "lucide-react"
+import { Check, CheckCircle2, ChevronRight, Mail, Phone, Minus } from "lucide-react"
 import PricingHeroBackground from "@/app/components/pricing-hero-background"
 
 import { Button } from "@/components/ui/button"
@@ -33,17 +33,12 @@ export default function PricingPage() {
             {/* Plan FREE */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 transition-transform hover:scale-[1.02]">
               <div className="p-8">
-                <h3 className="font-bold text-gray-900 mb-4 text-center text-3xl mt-5">FREE</h3>
+                <h3 className="font-bold text-gray-900 mb-4 text-center text-3xl mt-[17px]">FREE</h3>
                 <div className="flex items-end gap-2 mb-2 justify-center">
                   <span className="text-4xl font-bold text-gray-900">$0</span>
                   <span className="text-gray-600 mb-1">USD/mes</span>
                 </div>
-                <div className="text-center bg-gray-100 rounded-lg p-2 mb-6 mt-[18px]">
-                  <span className="text-sm text-gray-700">
-                    Comisión por venta: <strong>10%</strong>
-                  </span>
-                </div>
-                <p className="text-gray-600 mb-6">
+                <p className="text-gray-600 mb-6 mt-[21px]">
                   Pensado para fotógrafos independientes que están comenzando y quieren crecer su negocio.
                 </p>
                 <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-lg py-6" asChild>
@@ -52,6 +47,11 @@ export default function PricingPage() {
                     <ChevronRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
+                <div className="text-center mt-4">
+                  <span className="text-sm text-gray-600">
+                    Comisión por venta: <strong>10%</strong>
+                  </span>
+                </div>
               </div>
               <div className="border-t border-gray-200 p-8">
                 <ul className="space-y-4">
@@ -91,17 +91,17 @@ export default function PricingPage() {
                     <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-700">Cupones de descuento</span>
                   </li>
-                  <li className="flex items-start gap-3 text-gray-400">
-                    <X className="h-5 w-5 text-gray-400 mt-0.5 flex-shrink-0" />
-                    <span>Marca de agua FullFoto</span>
+                  <li className="flex items-start gap-3">
+                    <Minus className="h-5 w-5 text-gray-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">Marca de agua FullFoto</span>
                   </li>
-                  <li className="flex items-start gap-3 text-gray-400">
-                    <X className="h-5 w-5 text-gray-400 mt-0.5 flex-shrink-0" />
-                    <span>Branding FullFoto</span>
+                  <li className="flex items-start gap-3">
+                    <Minus className="h-5 w-5 text-gray-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">Branding FullFoto</span>
                   </li>
-                  <li className="flex items-start gap-3 text-gray-400">
-                    <X className="h-5 w-5 text-gray-400 mt-0.5 flex-shrink-0" />
-                    <span>Costo mínimo de implementación</span>
+                  <li className="flex items-start gap-3">
+                    <Minus className="h-5 w-5 text-gray-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">Costo mínimo de implementación</span>
                   </li>
                 </ul>
               </div>
@@ -113,18 +113,12 @@ export default function PricingPage() {
                 Plan más conveniente del mercado
               </div>
               <div className="p-8 bg-gradient-to-b from-blue-50 to-white">
-                <h3 className="font-bold text-gray-900 mb-4 text-center text-3xl mt-5">PRO</h3>
+                <h3 className="font-bold text-gray-900 mb-4 text-center text-3xl mt-[17px]">PRO</h3>
                 <div className="flex items-end gap-2 mb-2 justify-center">
                   <span className="text-4xl font-bold text-gray-900">$17</span>
                   <span className="text-gray-600 mb-1">USD/mes</span>
                 </div>
-                <div className="text-center bg-green-100 rounded-lg p-2 mb-6 mt-[13px]">
-                  <span className="text-sm text-green-800">
-                    Comisión por venta: <strong>7%</strong>
-                  </span>
-                  <div className="text-xs text-green-600 mt-1">La más baja del mercado</div>
-                </div>
-                <p className="text-gray-600 mb-6">
+                <p className="text-gray-600 mb-6 mt-[21px]">
                   Perfecto para fotógrafos con experiencia que quieren desbloquear su potencial y utilizar al 100% la
                   plataforma.
                 </p>
@@ -134,6 +128,12 @@ export default function PricingPage() {
                     <ChevronRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
+                <div className="text-center mt-4">
+                  <span className="text-sm text-gray-600">
+                    Comisión por venta: <strong>7%</strong>
+                  </span>
+                  <div className="text-xs text-green-600 mt-1 font-medium bg-green-200 gap-0 ml-[38px] mr-[38px] rounded-lg">La más baja del mercado</div>
+                </div>
               </div>
               <div className="border-t border-gray-200 p-8">
                 <ul className="space-y-4">
@@ -204,17 +204,12 @@ export default function PricingPage() {
             {/* Plan ENTERPRISE */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 transition-transform hover:scale-[1.02]">
               <div className="p-8">
-                <h3 className="font-bold text-gray-900 text-center text-3xl mt-5 mb-4">ENTERPRISE</h3>
+                <h3 className="font-bold text-gray-900 text-center text-3xl mb-4 mt-[17px]">ENTERPRISE</h3>
                 <div className="flex items-end gap-2 mb-6 justify-center">
                   <span className="text-2xl font-bold text-gray-900">Plan Adaptado</span>
                 </div>
-                <div className="text-center bg-gray-100 rounded-lg p-2 mb-6 mt-[18px]">
-                  <span className="text-sm text-gray-700">
-                    Comisión por venta: <strong>Personalizada</strong>
-                  </span>
-                </div>
-                <p className="text-gray-600 mb-6">
-                  Solución completa para empresas con (o sin) locales físicos y múltiples puntos de venta.
+                <p className="text-gray-600 mb-6 mt-[21px]">
+                  Solución completa para empresas con (o sin) locales físicos y múltiples puntos de venta. Implementaciones a medida.  
                 </p>
 
                 <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-lg py-6" asChild>
@@ -223,6 +218,11 @@ export default function PricingPage() {
                     <ChevronRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
+                <div className="text-center mt-4">
+                  <span className="text-sm text-gray-600">
+                    Comisión por venta: <strong>Personalizada</strong>
+                  </span>
+                </div>
               </div>
               <div className="border-t border-gray-200 p-8">
                 <ul className="space-y-4">
@@ -264,7 +264,7 @@ export default function PricingPage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">Marca de agua propia</span>
+                    <span className="text-gray-700">Marca de agua personalizada</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
@@ -398,7 +398,7 @@ export default function PricingPage() {
                 ¿Listo para potenciar tus ventas de fotos?
               </h2>
               <p className="text-xl text-blue-100 mb-8">
-                Comienza con nuestro plan FREE o agenda una demo para conocer todas las funcionalidades
+                Agenda una demo para conocer todas las funcionalidades
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
