@@ -305,19 +305,19 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">+12M</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">+10M</div>
               <p className="text-blue-200">Fotos subidas</p>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">+65k</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">+35k</div>
               <p className="text-blue-200">Usuarios registrados</p>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">+700</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">+500</div>
               <p className="text-blue-200">PHs activos</p>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">+35k</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">+40k</div>
               <p className="text-blue-200">Ventas cerradas</p>
             </div>
           </div>
