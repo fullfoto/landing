@@ -317,7 +317,7 @@ export default function Home() {
               <p className="text-blue-200">PHs activos</p>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">+40k</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">+50k</div>
               <p className="text-blue-200">Ventas cerradas</p>
             </div>
           </div>
