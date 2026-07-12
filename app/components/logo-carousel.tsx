@@ -15,6 +15,7 @@ const clients = [
   { src: "/clients/infinitowaterpark.png", alt: "Infinito Water Park", w: 170 },
   { src: "/clients/chapelco.png", alt: "Cerro Chapelco", w: 170 },
   { src: "/clients/xtreme.png", alt: "Escuela Xtreme", w: 170 },
+  { src: "/clients/laderas.png", alt: "Laderas", w: 170 },
 ]
 
 const SLOT_WIDTH = 240
