@@ -56,6 +56,9 @@ export default function TerminosPage() {
               <p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-2">Sitio administrado por</p>
               <p className="text-gray-900 font-semibold">Gaspar Rodriguez</p>
               <p className="text-gray-600 text-sm">DNI: 36.765.640</p>
+
+              <p className="text-gray-900 font-semibold mt-2">Ramiro Peñaranda</p>
+              <p className="text-gray-600 text-sm">DNI: 30.022.584</p>
             </div>
 
             <h2>1. Sobre FullFoto</h2>
