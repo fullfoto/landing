@@ -1,7 +1,15 @@
 import type { MetadataRoute } from "next"
+import { competitors } from "@/app/data/competitors"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://fullfoto.com"
+
+  const comparativas = Object.keys(competitors).map((key) => ({
+    url: `${baseUrl}/comparativas/fullfoto-vs-${key}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }))
 
   return [
     {
@@ -40,12 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/comparativas/fullfoto-vs-runtag`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
+    ...comparativas,
     {
       url: `${baseUrl}/casos-de-exito/infinito-water-park`,
       lastModified: new Date("2026-01-15"),

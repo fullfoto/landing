@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
+import { notFound } from "next/navigation"
 import { Check, ChevronLeft, ChevronRight, HelpCircle, Mail, Minus, Phone, ShieldCheck, Sparkles } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -14,23 +15,47 @@ import {
 } from "@/components/ui/accordion"
 import { competitors } from "@/app/data/competitors"
 
-const competitor = competitors.runtag
-
-export const metadata: Metadata = {
-  title: "FullFoto vs Runtag: comparativa 2026",
-  description:
-    "Comparamos FullFoto y Runtag para venta de fotos de eventos deportivos: comisión, pasarelas de pago, soporte y para quién es cada plataforma.",
-  alternates: { canonical: "/comparativas/fullfoto-vs-runtag" },
+function competitorFromSlug(slug: string) {
+  const key = slug.replace(/^fullfoto-vs-/, "")
+  return competitors[key]
 }
 
-export default function FullfotoVsRuntagPage() {
+export function generateStaticParams() {
+  return Object.keys(competitors).map((key) => ({ slug: `fullfoto-vs-${key}` }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const competitor = competitorFromSlug(slug)
+  if (!competitor) return {}
+
+  return {
+    title: `FullFoto vs ${competitor.name}: comparativa 2026`,
+    description: `Comparamos FullFoto y ${competitor.name} para venta de fotos de eventos deportivos: comisión, funcionalidades, soporte y para quién es cada plataforma.`,
+    alternates: { canonical: `/comparativas/${slug}` },
+  }
+}
+
+export default async function ComparativaDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  const competitor = competitorFromSlug(slug)
+  if (!competitor) notFound()
+
   return (
     <main className="flex min-h-screen flex-col">
       <BreadcrumbJsonLd
         items={[
           { name: "Inicio", url: "/" },
           { name: "Comparativas", url: "/comparativas" },
-          { name: "FullFoto vs Runtag", url: "/comparativas/fullfoto-vs-runtag" },
+          { name: `FullFoto vs ${competitor.name}`, url: `/comparativas/${slug}` },
         ]}
       />
       <FAQPageJsonLd faqs={competitor.faqs} />
@@ -59,12 +84,11 @@ export default function FullfotoVsRuntagPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white tracking-tight leading-[1.1]">
               FullFoto vs{" "}
               <span className="bg-gradient-to-r from-blue-300 to-cyan-300 bg-clip-text text-transparent">
-                Runtag
+                {competitor.name}
               </span>
             </h1>
             <p className="text-lg md:text-xl text-blue-100/90 max-w-2xl leading-relaxed">
-              Las dos son plataformas de reconocimiento facial y de dorsal para vender fotos de eventos deportivos.
-              La diferencia está en el país de origen, la transparencia de la comisión y los verticales que cubren.
+              {competitor.tagline}
             </p>
           </div>
         </div>
@@ -78,12 +102,7 @@ export default function FullfotoVsRuntagPage() {
               <ShieldCheck className="h-4 w-4" />
               Resumen rápido
             </div>
-            <p className="text-gray-800 text-lg leading-relaxed">
-              <strong>Runtag</strong> es una plataforma española con trayectoria en eventos deportivos masivos y
-              varias pasarelas de pago internacionales, pero no publica su comisión. <strong>FullFoto</strong> es
-              argentina, publica una comisión del 7% en el plan Pro, y además de running cubre parques acuáticos,
-              centros de esquí y parques temáticos — con servidor LAN para venues sin buena conectividad.
-            </p>
+            <p className="text-gray-800 text-lg leading-relaxed">{competitor.tldr}</p>
           </div>
         </div>
       </section>
@@ -99,7 +118,7 @@ export default function FullfotoVsRuntagPage() {
               <div className="grid grid-cols-3 bg-gray-900 text-white text-sm font-medium">
                 <div className="p-4">Funcionalidad</div>
                 <div className="p-4 text-center">FullFoto</div>
-                <div className="p-4 text-center">Runtag</div>
+                <div className="p-4 text-center">{competitor.name}</div>
               </div>
               {competitor.comparisonRows.map((row, i) => (
                 <div
@@ -119,20 +138,22 @@ export default function FullfotoVsRuntagPage() {
               ))}
             </div>
             <p className="text-xs text-gray-400 mt-4 text-center">
-              Datos de Runtag relevados de su sitio público (web.runtag.app) — si algo cambió, escribinos a{" "}
+              Datos relevados de fuentes públicas y de nuestro research de mercado — si algo cambió, escribinos a{" "}
               <a href="mailto:info@fullfoto.com" className="underline">info@fullfoto.com</a> y lo corregimos.
             </p>
           </div>
         </div>
       </section>
 
-      {/* RUNTAG STRENGTHS — honesty */}
+      {/* COMPETITOR STRENGTHS — honesty */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-gray-900">Fortalezas reales de Runtag</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-gray-900">
+              Fortalezas reales de {competitor.name}
+            </h2>
             <p className="text-gray-500 mb-8">
-              Si vas a comparar, comparemos en serio — esto es lo que Runtag hace bien.
+              Si vas a comparar, comparemos en serio — esto es lo que {competitor.name} hace bien.
             </p>
             <ul className="space-y-4">
               {competitor.strengths.map((s) => (
@@ -176,7 +197,7 @@ export default function FullfotoVsRuntagPage() {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Preguntas frecuentes</h2>
             <p className="text-lg text-gray-500 max-w-3xl mx-auto">
-              Resolvemos las dudas más comunes al comparar FullFoto con Runtag
+              Resolvemos las dudas más comunes al comparar FullFoto con {competitor.name}
             </p>
           </div>
 
@@ -199,7 +220,9 @@ export default function FullfotoVsRuntagPage() {
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl"></div>
 
             <div className="relative z-10 max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">¿Listo para migrar de Runtag?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+                ¿Listo para migrar de {competitor.name}?
+              </h2>
               <p className="text-lg text-blue-200 mb-10 leading-relaxed">
                 Agendá una demo y te ayudamos a evaluar la migración: qué se traslada, qué hay que reconfigurar y
                 los tiempos según tu operación.
