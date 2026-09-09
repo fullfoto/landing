@@ -7,6 +7,8 @@ export interface Competitor {
   summary: string
   /** 2-3 frases para el bloque "Resumen rápido" de la página de detalle */
   tldr: string
+  /** Mes/año de la última verificación de estos datos, ej. "septiembre 2026" */
+  lastVerified: string
   /** Fortalezas reales del competidor, reconocidas con honestidad */
   strengths: string[]
   fullfotoAdvantages: { title: string; description: string }[]
@@ -23,6 +25,7 @@ export const competitors: Record<string, Competitor> = {
     summary:
       "Runtag es la tecnología detrás de varias fotografías de eventos deportivos en Argentina, incluyendo Fotorun. Es española, no publica comisión pública y está enfocada solo en running y eventos masivos.",
     tldr: "Runtag es una plataforma española con trayectoria en eventos deportivos masivos y varias pasarelas de pago internacionales, pero no publica su comisión. FullFoto es argentina, publica una comisión del 7% en el plan Pro, y además de running cubre parques acuáticos, centros de esquí y parques temáticos — con servidor LAN para venues sin buena conectividad.",
+    lastVerified: "septiembre 2026",
     strengths: [
       "Integra múltiples pasarelas de pago internacionales: Stripe, PayPal, Apple Pay y Google Pay, además de MercadoPago.",
       "Trayectoria comprobada en eventos deportivos masivos a nivel internacional.",
@@ -128,6 +131,7 @@ export const competitors: Record<string, Competitor> = {
     summary:
       "Picsel cubre running, triatlón, ciclismo, surf y trail en Latinoamérica con reconocimiento facial. FullFoto suma robustez probada en operaciones de mayor escala (centros de ski de nivel mundial) y verticales que Picsel no cubre.",
     tldr: "Picsel es una plataforma latinoamericana enfocada en running, triatlón, ciclismo, surf y trail, con una comisión del 10%. FullFoto cubre esos mismos eventos y además opera centros de ski de primer nivel mundial como FotoSoldeu (Grandvalira, Andorra) y Chapelco (Argentina), con comisiones desde 7% en el plan Pro y servidor LAN para conectividad limitada.",
+    lastVerified: "septiembre 2026",
     strengths: [
       "Plan Pro con 0% de comisión para quienes prefieren pagar una suscripción fija ($16/mes + créditos) en vez de comisión por venta.",
       "Editor de fotos integrado con procesamiento por lotes.",
@@ -227,6 +231,7 @@ export const competitors: Record<string, Competitor> = {
     summary:
       "Lumepic es un marketplace: tus fotos se venden mezcladas con las de otros fotógrafos, con una comisión de 20% a 30%. FullFoto te da una página 100% propia donde todas las ventas son tuyas, con comisiones de 7% a 10%.",
     tldr: "Lumepic es un marketplace donde tus fotos se venden mezcladas con las de otros fotógrafos, con comisión de 20% a 30%. FullFoto te da una página 100% propia — todas las ventas son tuyas — con comisiones de 7% a 10% y herramientas para armar tu propio marketplace bajo tu marca.",
+    lastVerified: "septiembre 2026",
     strengths: [
       "Trae su propia audiencia y hace publicidad del evento — útil en carreras donde el fotógrafo o la empresa todavía no tiene marca conocida.",
       "Marketplace ya armado, con más de 41.000 usuarios y 3.800 fotógrafos activos en la región (Argentina, Perú, Chile, México, España, Portugal, Uruguay).",
@@ -314,6 +319,102 @@ export const competitors: Record<string, Competitor> = {
       {
         question: "¿Puedo migrar de Lumepic a FullFoto?",
         answer: "Sí. Agendá una demo y vemos cómo migrar tu operación manteniendo tu base de compradores.",
+      },
+    ],
+  },
+  pixieset: {
+    slug: "pixieset",
+    name: "Pixieset",
+    country: "Canadá",
+    tagline: "Galerías de cliente y sitios de portfolio para fotógrafos de bodas y retratos",
+    summary:
+      "Pixieset es para fotógrafos que entregan una galería privada a un cliente conocido (bodas, retratos) y quieren un portfolio propio. No tiene reconocimiento facial ni búsqueda por dorsal — no está pensada para que miles de desconocidos encuentren sus fotos en un evento masivo.",
+    tldr: "Pixieset es una plataforma canadiense de galerías de cliente y sitios de portfolio, pensada para que un fotógrafo entregue fotos a un cliente conocido (una boda, una sesión) y venda sus servicios. FullFoto está construida específicamente para la venta masiva de fotos en eventos deportivos, parques y centros de ski, con reconocimiento facial para que miles de compradores desconocidos encuentren las suyas.",
+    lastVerified: "septiembre 2026",
+    strengths: [
+      "Plataforma madura (desde 2013), con foco fuerte en fotógrafos de bodas y retrato.",
+      "Sitios de portfolio muy pulidos, con plantillas de diseño premiadas.",
+      "Herramientas de estudio completas: contratos, cuestionarios, agenda y facturación en un solo lugar.",
+      "Planes con 0% de comisión disponibles desde $10 USD/mes fijo.",
+    ],
+    fullfotoAdvantages: [
+      {
+        title: "Construida para venta masiva, no para entrega a un cliente",
+        description:
+          "FullFoto tiene reconocimiento facial y búsqueda por dorsal para que miles de compradores desconocidos encuentren sus fotos en minutos. Pixieset está pensada para entregar una galería privada a un cliente que ya conocés (una boda, una sesión de retrato).",
+      },
+      {
+        title: "Pensada para los verticales de FullFoto",
+        description:
+          "Parques acuáticos, centros de esquí, eventos deportivos y parques temáticos — con servidor LAN para conectividad limitada. Pixieset no está diseñada para estos volúmenes ni para compradores anónimos.",
+      },
+      {
+        title: "Comisión que no depende de pagar un plan fijo",
+        description:
+          "10% en el Free y 7% en el Pro, sin importar cuántas fotos subas. En Pixieset, bajar la comisión a 0% requiere pagar un plan mensual fijo desde el día uno, tengas ventas o no.",
+      },
+      {
+        title: "Medios de pago pensados para Latinoamérica",
+        description: "MercadoPago, PayPal y Pix integrados nativamente.",
+      },
+    ],
+    comparisonRows: [
+      {
+        feature: "Para qué está pensada",
+        fullfoto: "Venta masiva de fotos en eventos deportivos, parques y ski",
+        competitor: "Entrega de galería a un cliente conocido (bodas, retratos) y portfolio de fotógrafo",
+      },
+      {
+        feature: "Reconocimiento facial / búsqueda por dorsal",
+        fullfoto: "Sí",
+        competitor: "No",
+      },
+      {
+        feature: "Pensada para miles de compradores desconocidos por evento",
+        fullfoto: "Sí",
+        competitor: "No — pensada para pocos compradores por sesión",
+      },
+      {
+        feature: "Comisión",
+        fullfoto: "10% Free, 7% Pro, más baja en Enterprise",
+        competitor: "15% Free, 0% desde plan pago ($10 USD/mes fijo)",
+      },
+      {
+        feature: "Sitio de portfolio personal para el fotógrafo",
+        fullfoto: "No es el foco",
+        competitor: "Sí — es su fuerte, con plantillas premiadas",
+      },
+      {
+        feature: "Servidor LAN para conectividad limitada",
+        fullfoto: "Sí (plan Enterprise)",
+        competitor: "No especificado en su sitio",
+      },
+      {
+        feature: "Medios de pago",
+        fullfoto: "MercadoPago, PayPal, Pix",
+        competitor: "No especificado en su sitio",
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Pixieset y FullFoto compiten por lo mismo?",
+        answer:
+          "No del todo. Pixieset está pensada para que un fotógrafo entregue una galería privada a un cliente conocido — una boda, una sesión de retrato — y arme su portfolio. FullFoto está construida para que miles de compradores desconocidos encuentren y compren sus fotos en un evento masivo, con reconocimiento facial y búsqueda por dorsal.",
+      },
+      {
+        question: "¿Puedo usar Pixieset para vender fotos de una carrera o un parque acuático?",
+        answer:
+          "Técnicamente se pueden subir las fotos, pero Pixieset no tiene reconocimiento facial ni búsqueda por dorsal, así que cada comprador tendría que revisar manualmente cientos o miles de fotos para encontrar las suyas — a esa escala no funciona bien.",
+      },
+      {
+        question: "¿Cuál tiene menor comisión, FullFoto o Pixieset?",
+        answer:
+          "Depende del volumen: Pixieset cobra 15% en el plan Free, o 0% pagando un plan fijo desde $10 USD/mes. FullFoto cobra 10% en el Free y 7% en el Pro, sin un mínimo mensual fijo.",
+      },
+      {
+        question: "¿Puedo migrar de Pixieset a FullFoto?",
+        answer:
+          "Sí, tiene sentido si estás usando Pixieset para eventos masivos y la búsqueda manual les está haciendo perder ventas a tus compradores. Agendá una demo y lo vemos.",
       },
     ],
   },

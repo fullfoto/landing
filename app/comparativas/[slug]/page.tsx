@@ -34,8 +34,8 @@ export async function generateMetadata({
   if (!competitor) return {}
 
   return {
-    title: `FullFoto vs ${competitor.name}: comparativa 2026`,
-    description: `Comparamos FullFoto y ${competitor.name} para venta de fotos de eventos deportivos: comisión, funcionalidades, soporte y para quién es cada plataforma.`,
+    title: `FullFoto vs ${competitor.name}: comparativa y alternativa 2026`,
+    description: `¿Buscás una alternativa a ${competitor.name}? Comparamos FullFoto y ${competitor.name} en comisión, funcionalidades, soporte y para quién es cada plataforma — con datos verificados en ${competitor.lastVerified}.`,
     alternates: { canonical: `/comparativas/${slug}` },
   }
 }
@@ -138,15 +138,54 @@ export default async function ComparativaDetailPage({
               ))}
             </div>
             <p className="text-xs text-gray-400 mt-4 text-center">
-              Datos relevados de fuentes públicas y de nuestro research de mercado — si algo cambió, escribinos a{" "}
+              Última actualización: {competitor.lastVerified}. Datos relevados de fuentes públicas y de nuestro
+              research de mercado — si algo cambió, escribinos a{" "}
               <a href="mailto:info@fullfoto.com" className="underline">info@fullfoto.com</a> y lo corregimos.
             </p>
           </div>
         </div>
       </section>
 
-      {/* COMPETITOR STRENGTHS — honesty */}
+      {/* FULLFOTO ADVANTAGES */}
       <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900">Por qué elegir FullFoto</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {competitor.fullfotoAdvantages.map((a) => (
+                <div key={a.title} className="bg-gray-50 border border-gray-100 rounded-2xl p-6 shadow-sm">
+                  <div className="bg-blue-50 rounded-xl p-2.5 w-fit mb-4">
+                    <Check className="h-5 w-5 text-blue-600" />
+                  </div>
+                  <h3 className="font-semibold text-gray-900 mb-2">{a.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{a.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIAL */}
+      <section className="py-20 bg-gradient-to-br from-gray-900 via-blue-950 to-indigo-950 relative overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <blockquote className="text-xl md:text-2xl font-medium leading-relaxed mb-8 text-white">
+              &ldquo;El equipo de FullFoto más que nuestro proveedor es nuestro partner tecnológico. Nos acompañan
+              hace años en todos nuestros proyectos: Cerro Catedral, La Hoya, Lago Hermoso y ahora también
+              Chapelco.&rdquo;
+            </blockquote>
+            <div className="text-blue-200">
+              <p className="font-semibold">Diego Ferreyra</p>
+              <p className="text-sm text-blue-300/80">Socio de B-Side</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* COMPETITOR STRENGTHS — honesty */}
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold mb-3 text-gray-900">
@@ -157,32 +196,12 @@ export default async function ComparativaDetailPage({
             </p>
             <ul className="space-y-4">
               {competitor.strengths.map((s) => (
-                <li key={s} className="flex items-start gap-3 bg-gray-50 border border-gray-100 rounded-2xl p-5">
+                <li key={s} className="flex items-start gap-3 bg-white border border-gray-100 rounded-2xl p-5">
                   <Check className="h-5 w-5 text-gray-400 mt-0.5 flex-shrink-0" />
                   <span className="text-gray-700">{s}</span>
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* FULLFOTO ADVANTAGES */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900">Por qué elegir FullFoto</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {competitor.fullfotoAdvantages.map((a) => (
-                <div key={a.title} className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
-                  <div className="bg-blue-50 rounded-xl p-2.5 w-fit mb-4">
-                    <Check className="h-5 w-5 text-blue-600" />
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">{a.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{a.description}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

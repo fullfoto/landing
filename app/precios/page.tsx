@@ -317,6 +317,32 @@ export default function PricingPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════
+          COMPARATIVAS TEASER
+      ═══════════════════════════════════════════════ */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8">
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-1">¿Ya usás Runtag, Picsel, Lumepic o Pixieset?</h3>
+              <p className="text-gray-500 text-sm">
+                Mirá cómo te conviene FullFoto en comisión, funcionalidades y verticales.
+              </p>
+            </div>
+            <Button
+              variant="outline"
+              className="border-gray-300 text-gray-700 hover:bg-gray-100 rounded-xl flex-shrink-0 bg-transparent"
+              asChild
+            >
+              <Link href="/comparativas">
+                Ver comparativas
+                <ChevronRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════
           FAQ
       ═══════════════════════════════════════════════ */}
       <section className="py-24 bg-white">
@@ -397,6 +423,9 @@ export default function PricingPage() {
               </Link>
             </div>
             <div className="flex gap-8">
+              <Link href="/comparativas" className="hover:text-white transition-colors text-sm">
+                Comparativas
+              </Link>
               <Link href="/terminos" className="hover:text-white transition-colors text-sm">
                 Términos
               </Link>

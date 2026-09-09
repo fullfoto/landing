@@ -157,6 +157,9 @@ export default function PrivacidadPage() {
               </Link>
             </div>
             <div className="flex gap-8">
+              <Link href="/comparativas" className="hover:text-white transition-colors text-sm">
+                Comparativas
+              </Link>
               <Link href="/terminos" className="hover:text-white transition-colors text-sm">
                 Términos
               </Link>

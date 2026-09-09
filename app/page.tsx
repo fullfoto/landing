@@ -484,6 +484,7 @@ export default function Home() {
               </Link>
             </div>
             <div className="flex gap-8">
+              <Link href="/comparativas" className="hover:text-white transition-colors text-sm">Comparativas</Link>
               <Link href="/terminos" className="hover:text-white transition-colors text-sm">Términos</Link>
               <Link href="/privacidad" className="hover:text-white transition-colors text-sm">Privacidad</Link>
               <Link href="/#contacto" className="hover:text-white transition-colors text-sm">Contacto</Link>

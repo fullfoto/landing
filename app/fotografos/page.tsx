@@ -576,6 +576,7 @@ export default function FotografosPage() {
               <Image src="/logo-nuevo-blanco.png" alt="FullFoto" width={120} height={40} className="h-10 w-auto" />
             </Link>
             <div className="flex gap-6 mt-4 md:mt-0">
+              <Link href="/comparativas" className="hover:text-white transition-colors text-sm">Comparativas</Link>
               <Link href="/terminos" className="hover:text-white transition-colors text-sm">Términos</Link>
               <Link href="/privacidad" className="hover:text-white transition-colors text-sm">Privacidad</Link>
               <Link href="/#contacto" className="hover:text-white transition-colors text-sm">Contacto</Link>
