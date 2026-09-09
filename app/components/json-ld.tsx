@@ -23,6 +23,21 @@ export function OrganizationJsonLd() {
       minValue: 2,
       maxValue: 10,
     },
+    founder: [
+      {
+        "@type": "Person",
+        name: "Gaspar Rodríguez",
+        jobTitle: "Co-founder & CEO",
+        sameAs: ["https://www.linkedin.com/in/gaspargr/"],
+      },
+      {
+        "@type": "Person",
+        name: "Ramiro Peñaranda",
+        alternateName: "Tate",
+        jobTitle: "Co-founder & CTO",
+        sameAs: ["https://www.linkedin.com/in/tpenaranda/"],
+      },
+    ],
   }
 
   return (
