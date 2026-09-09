@@ -1,20 +1,30 @@
 "use client"
 
 import { useState } from "react"
-import { Calendar, Clock, Building, User, Mail, Phone } from "lucide-react"
+import { Building, User, Mail, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import Link from "next/link"
 import Notification from "./notification"
 import { sendDemoEmail } from "../actions/email"
 
+const PLAN_LABELS: Record<string, string> = { free: "Free", pro: "Pro", enterprise: "Enterprise" }
+const FULLFOTO_WHATSAPP = "5491178279790" // +54 9 11 7827-9790 en formato wa.me
+
+function buildWhatsAppUrl(formData: FormData) {
+  const plan = PLAN_LABELS[formData.get("planInteres") as string] ?? "Free"
+  const mensaje = ((formData.get("mensaje") as string) || "").trim()
+  const texto =
+    `Hola, quiero coordinar una demo de Fullfoto para el plan ${plan}.` + (mensaje ? `\n\n${mensaje}` : "")
+  return `https://wa.me/${FULLFOTO_WHATSAPP}?text=${encodeURIComponent(texto)}`
+}
+
 export default function DemoForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [selectedHora, setSelectedHora] = useState<string>("")
+  const [waLink, setWaLink] = useState<string | null>(null)
   const [notification, setNotification] = useState<{
     show: boolean
     type: "success" | "error"
@@ -26,10 +36,11 @@ export default function DemoForm() {
   })
 
   async function handleSubmit(formData: FormData) {
-    // Añadir la hora seleccionada al FormData
-    if (selectedHora) {
-      formData.set("hora", selectedHora)
-    }
+    // Abrir WhatsApp primero, antes de cualquier await: así el navegador todavía
+    // reconoce que es resultado directo del clic y no lo bloquea como popup.
+    const waUrl = buildWhatsAppUrl(formData)
+    window.open(waUrl, "_blank", "noopener,noreferrer")
+    setWaLink(waUrl)
 
     setIsSubmitting(true)
     try {
@@ -55,7 +66,6 @@ export default function DemoForm() {
         // Limpiar el formulario
         const form = document.getElementById("demoForm") as HTMLFormElement
         form.reset()
-        setSelectedHora("")
       } else {
         setNotification({
           show: true,
@@ -147,47 +157,6 @@ export default function DemoForm() {
           </RadioGroup>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-2">
-            <Label htmlFor="fecha" className="text-gray-700">
-              Fecha preferida <span className="text-red-500">*</span>
-            </Label>
-            <div className="relative">
-              <Calendar className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-              <Input id="fecha" name="fecha" type="date" className="pl-10" required />
-            </div>
-            <p className="text-xs text-gray-400">Orientativo — confirmaremos por WhatsApp</p>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="hora" className="text-gray-700">
-              Hora preferida <span className="text-red-500">*</span>
-            </Label>
-            <div className="relative">
-              <Clock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-              <Select name="hora" value={selectedHora} onValueChange={setSelectedHora} required>
-                <SelectTrigger className="pl-10">
-                  <SelectValue placeholder="Selecciona una hora" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="09:00">09:00 AM</SelectItem>
-                  <SelectItem value="10:00">10:00 AM</SelectItem>
-                  <SelectItem value="11:00">11:00 AM</SelectItem>
-                  <SelectItem value="12:00">12:00 PM</SelectItem>
-                  <SelectItem value="13:00">01:00 PM</SelectItem>
-                  <SelectItem value="14:00">02:00 PM</SelectItem>
-                  <SelectItem value="15:00">03:00 PM</SelectItem>
-                  <SelectItem value="16:00">04:00 PM</SelectItem>
-                  <SelectItem value="17:00">05:00 PM</SelectItem>
-                  <SelectItem value="18:00">06:00 PM</SelectItem>
-                  <SelectItem value="19:00">07:00 PM</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <p className="text-xs text-gray-400">Orientativo — confirmaremos por WhatsApp</p>
-          </div>
-        </div>
-
         <div className="space-y-2">
           <Label htmlFor="mensaje" className="text-gray-700">
             Mensaje o consulta específica
@@ -206,7 +175,7 @@ export default function DemoForm() {
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
           </svg>
           <p className="text-sm text-green-800 leading-relaxed">
-            <strong>Esto no es una reserva definitiva.</strong> Te contactaremos por WhatsApp para coordinar y confirmar el día y horario de tu demo.
+            <strong>Al enviar se abre WhatsApp</strong> con un mensaje ya armado — solo tenés que mandarlo. Te respondemos ahí mismo, dentro de las 24hs.
           </p>
         </div>
 
@@ -215,8 +184,18 @@ export default function DemoForm() {
           className="w-full bg-blue-500 hover:bg-blue-600 text-white py-6 text-lg"
           disabled={isSubmitting}
         >
-          {isSubmitting ? "Enviando solicitud..." : "Enviar solicitud de demo"}
+          {isSubmitting ? "Enviando solicitud..." : "Enviar y abrir WhatsApp"}
         </Button>
+
+        {waLink && (
+          <p className="text-sm text-gray-500 text-center">
+            ¿No se abrió WhatsApp?{" "}
+            <a href={waLink} target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-700">
+              Escribinos acá
+            </a>
+            .
+          </p>
+        )}
 
         <p className="text-sm text-gray-500 text-center">
           Al enviar este formulario, aceptas nuestra{" "}

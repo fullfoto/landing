@@ -18,8 +18,6 @@ const demoFormSchema = z.object({
   telefono: z.string().min(5, { message: "El teléfono es requerido" }),
   empresa: z.string().optional(),
   planInteres: z.enum(["free", "pro", "enterprise"]),
-  fecha: z.string().min(1, { message: "La fecha es requerida" }),
-  hora: z.string().min(1, { message: "La hora es requerida" }),
   mensaje: z.string().optional(),
 })
 
@@ -87,8 +85,6 @@ export async function sendDemoEmail(formData: FormData) {
       telefono: formData.get("telefono") as string,
       empresa: formData.get("empresa") as string,
       planInteres: formData.get("planInteres") as "free" | "pro" | "enterprise",
-      fecha: formData.get("fecha") as string,
-      hora: formData.get("hora") as string,
       mensaje: formData.get("mensaje") as string,
     }
 
@@ -114,8 +110,6 @@ export async function sendDemoEmail(formData: FormData) {
         <p><strong>Teléfono:</strong> ${validatedData.telefono}</p>
         <p><strong>Empresa:</strong> ${validatedData.empresa || "No especificada"}</p>
         <p><strong>Plan de interés:</strong> ${planInteresTexto}</p>
-        <p><strong>Fecha preferida:</strong> ${validatedData.fecha}</p>
-        <p><strong>Hora preferida:</strong> ${validatedData.hora}</p>
         <p><strong>Mensaje adicional:</strong></p>
         <p>${validatedData.mensaje || "No hay mensaje adicional"}</p>
       `,
@@ -124,7 +118,7 @@ export async function sendDemoEmail(formData: FormData) {
     // Enviar el email
     await transporter.sendMail(mailOptions)
 
-    return { success: true, message: "¡Solicitud recibida! Te contactaremos por WhatsApp para confirmar día y horario de tu demo." }
+    return { success: true, message: "¡Listo! Se abrió WhatsApp con tu mensaje — solo tenés que enviarlo para que coordinemos tu demo." }
   } catch (error) {
     console.error("Error al enviar el email de demo:", error)
     if (error instanceof z.ZodError) {

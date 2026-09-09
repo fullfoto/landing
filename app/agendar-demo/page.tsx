@@ -165,7 +165,7 @@ export default function AgendarDemoPage() {
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold text-gray-900">Completa tus datos</h2>
-                    <p className="text-gray-500 text-sm">Te contactaremos por WhatsApp en menos de 24 hs</p>
+                    <p className="text-gray-500 text-sm">Escribinos por WhatsApp y te respondemos en menos de 24 hs</p>
                   </div>
                 </div>
                 <DemoForm />
