@@ -15,10 +15,12 @@ const PLAN_LABELS: Record<string, string> = { free: "Free", pro: "Pro", enterpri
 const FULLFOTO_WHATSAPP = "5491178279790" // +54 9 11 7827-9790 en formato wa.me
 
 function buildWhatsAppUrl(formData: FormData) {
+  const nombre = ((formData.get("nombre") as string) || "").trim()
   const plan = PLAN_LABELS[formData.get("planInteres") as string] ?? "Free"
   const mensaje = ((formData.get("mensaje") as string) || "").trim()
   const texto =
-    `Hola, quiero coordinar una demo de Fullfoto para el plan ${plan}.` + (mensaje ? `\n\n${mensaje}` : "")
+    `Hola, mi nombre es ${nombre}, quiero agendar una demo de Fullfoto para el plan ${plan}.` +
+    (mensaje ? `\n${mensaje}` : "")
   return `https://wa.me/${FULLFOTO_WHATSAPP}?text=${encodeURIComponent(texto)}`
 }
 

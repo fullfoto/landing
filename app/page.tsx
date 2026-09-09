@@ -54,7 +54,7 @@ const homeFaqs = [
   {
     question: "¿Necesito conexión a internet en el local para usar FullFoto?",
     answer:
-      "No. El plan Enterprise incluye un servidor LAN local que permite cargar fotos al instante sin depender de la conexión a internet. Está pensado para centros de esquí, parques acuáticos y atracciones donde la conectividad es limitada o intermitente.",
+      "Sí, la plataforma es una plataforma web que necesita internet para funcionar. La buena noticia es que los planes Enterprise incluyen un servidor LAN local que permite utilizar la plataforma en alta velocidad y con funciones premium aún con muy malas condiciones de internet.",
   },
   {
     question: "¿Qué métodos de pago acepta FullFoto?",
