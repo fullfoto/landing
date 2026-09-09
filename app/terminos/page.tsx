@@ -52,6 +52,12 @@ export default function TerminosPage() {
               Los presentes Términos y Condiciones regulan el acceso y uso de la plataforma FullFoto y de los servicios ofrecidos a través de ella. Al utilizar FullFoto, el usuario acepta expresamente estos Términos.
             </p>
 
+            <div className="not-prose bg-gray-50 border border-gray-200 rounded-2xl p-6 mb-10">
+              <p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-2">Sitio administrado por</p>
+              <p className="text-gray-900 font-semibold">Gaspar Rodriguez</p>
+              <p className="text-gray-600 text-sm">DNI: 36.765.640</p>
+            </div>
+
             <h2>1. Sobre FullFoto</h2>
             <p>
               FullFoto es una plataforma tecnológica que permite la <strong>gestión, comercialización y entrega digital de fotografías</strong>, actuando como proveedor de servicios digitales (SaaS).
